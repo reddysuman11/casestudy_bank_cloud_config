@@ -1,0 +1,42 @@
+# temporary data storage
+spring:
+  datasource :
+    url:  jdbc:h2:mem:testdb
+    driverClassName:  org.h2.Driver
+    username: sa
+    password: 
+
+  profiles:
+    active: dev
+    
+  jpa:
+    database-platform:  org.hibernate.dialect.H2Dialect
+
+##### H2
+#Enabling H2 Console
+  h2:
+    console:
+      enabled:  true
+ 
+# Custom H2 Console URL
+      path: /h2
+
+#LOGGING
+# Output to a temp_folder/file
+#logging.file=c:/temp/application.log
+logging:
+  file:
+    path: ./si20103262_bank/
+
+  pattern:
+    file: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%'
+
+#Log Level: ERROR, WARN, INFO, DEBUG, or TRACE.
+  level:
+    org:
+      springframework:  INFO 
+    
+    com:
+      si20103262: 
+       bank:
+        service:  INFO
